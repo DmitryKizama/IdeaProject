@@ -1,10 +1,10 @@
-public class StackList {
+public class MyArrayList {
 
     private String[] list;
     private int current_capacity;
     private int current_id;
 
-    public StackList() {
+    public MyArrayList() {
         current_capacity = 5;
         current_id = 0;
         list = new String[current_capacity];
@@ -12,7 +12,7 @@ public class StackList {
 
     public void add(String word) {
         System.out.println("add method, id = " + current_id);
-        if (current_id == current_capacity - 1) {
+        if (current_id == current_capacity) {
             System.out.println("grow capacity");
             String[] largerList = new String[current_capacity + 10];
             for (int i = 0; i < current_id; i++) {
@@ -25,7 +25,7 @@ public class StackList {
         current_id++;
     }
 
-    public int getSize() {
+    public int getCapacity() {
         return current_capacity;
     }
 
