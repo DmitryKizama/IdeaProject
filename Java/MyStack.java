@@ -1,33 +1,43 @@
-public class MyStack {
+public class MyStack<T> {
 
-    private String[] list;
+    private static final int DEF_CAP = 16;
+
+    private int currentId;
+    private T[] list;
     private int capacity;
 
     public MyStack() {
-        capacity = 1;
-        list = new String[capacity];
+        capacity = DEF_CAP;
+        currentId = -1;
+        list = (T[]) new Object[capacity];
     }
 
-    public void add(String word) {
-        String[] largerList = new String[capacity + 1];
-        for (int i = 0; i < capacity; i++) {
-            largerList[i + 1] = list[i];
+    public void push(T word) {
+        if (currentId == capacity - 1) {
+            T[] largerList = (T[]) new Object[2 * capacity];
+            for (int i = 0; i < capacity; i++) {
+                largerList[i] = list[i];
+            }
+            list = largerList;
         }
-        list = largerList;
-        capacity++;
-        list[0] = word;
+
+        list[++currentId] = word;
     }
 
-    public void delete(){
-        String[] lowList = new String[capacity - 1];
-        for (int i = 0; i < list.length - 1; i++) {
-            lowList[i] = list[i + 1];
+    public T pop() {
+
+        if(currentId == -1){
+            return null;
         }
-        list = lowList;
-        capacity--;
+
+        T copy = list[currentId];
+        list[currentId] = null;
+        --currentId;
+
+        return copy;
     }
 
-    public int getSize() {
+    public int getCapacity() {
         return capacity;
     }
 
@@ -35,13 +45,12 @@ public class MyStack {
         return list.length;
     }
 
-    public String get(int id) {
-        if (id > capacity) {
-            return "OUT OF BOUND EXCEPTION";
+    public T first() {
+        if(currentId == -1){
+            return null;
         }
-        if (list[id] == null) {
-            return "Doesn`t exist";
-        }
-        return list[id];
+
+        return list[currentId];
     }
+
 }

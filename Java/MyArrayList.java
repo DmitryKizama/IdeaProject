@@ -11,7 +11,7 @@ public class MyArrayList {
     }
 
     public void add(String word) {
-        System.out.println("add method, id = " + current_id);
+        System.out.println("push method, id = " + current_id);
         if (current_id == current_capacity) {
             System.out.println("grow capacity");
             String[] largerList = new String[current_capacity + 10];
