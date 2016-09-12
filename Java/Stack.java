@@ -34,10 +34,15 @@ public class Stack {
 //        System.out.println("no element = " + myArrayList.isEmpty());
 //        myArrayList.clear();
 //        System.out.println("no element = " + myArrayList.isEmpty());
-        myArrayList.remove("som");
+        myArrayList.set(7, "sdgdf");
         TestRunner.getInstance().assertEquals("some", myArrayList.get(3));
         TestRunner.getInstance().assertEquals("some", myArrayList.get(4));
         TestRunner.getInstance().assertEquals("some4", myArrayList.get(5));
+        System.out.println("capacity = " + myArrayList.getCapacity());
+        myArrayList.trimToSize();
+        System.out.println("capacity = " + myArrayList.getCapacity());
+        myArrayList.add("sdsa");
+        TestRunner.getInstance().assertEquals("sdsa", myArrayList.get(3));
     }
 
     private static void testIntegerStack() {

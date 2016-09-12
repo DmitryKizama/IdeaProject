@@ -103,7 +103,18 @@ public class MyArrayList<T> {
     }
 
     public void removeRange(int fromIndex, int toIndex) {
-        
+
+    }
+
+    public void set(int index, T element) {
+        if (index > size() && index < current_capacity) {
+            return;
+        }
+        list[index] = element;
+    }
+
+    public void trimToSize() {
+        current_capacity = size();
     }
 
     private void growCapacity() {
