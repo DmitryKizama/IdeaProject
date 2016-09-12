@@ -2,11 +2,42 @@ public class Stack {
 
 
     public static void main(String[] args) {
-        testStringStack();
-        testIntegerStack();
-        testPopStack();
+//        testStringStack();
+//        testIntegerStack();
+//        testPopStack();
+        testMyArrayList();
         System.out.println(" === END === ");
         TestRunner.getInstance().printStat();
+    }
+
+    private static void testMyArrayList() {
+        MyArrayList<String> myArrayList = new MyArrayList();
+        TestRunner.getInstance().assertEquals(null, myArrayList.get(0));
+        myArrayList.add("some");
+        myArrayList.add("some1");
+        myArrayList.add("some2");
+        myArrayList.add("some3");
+        myArrayList.add("some4");
+        myArrayList.add("some5");
+        TestRunner.getInstance().assertEquals("some", myArrayList.get(0));
+//        myArrayList.clear();
+//        TestRunner.getInstance().assertEquals(null, myArrayList.get(0));
+//        if (myArrayList.contains("some")) {
+//            System.out.println("CONTAIN");
+//        }
+//        System.out.println("capacity = " + myArrayList.getCapacity());
+//        System.out.println("size = " + myArrayList.size());
+//        myArrayList.ensureCapacity(20);
+//        System.out.println("capacity = " + myArrayList.getCapacity());
+//        System.out.println("size = " + myArrayList.size());
+//        System.out.println("index = " + myArrayList.indexOf("some32"));
+//        System.out.println("no element = " + myArrayList.isEmpty());
+//        myArrayList.clear();
+//        System.out.println("no element = " + myArrayList.isEmpty());
+        myArrayList.remove("som");
+        TestRunner.getInstance().assertEquals("some", myArrayList.get(3));
+        TestRunner.getInstance().assertEquals("some", myArrayList.get(4));
+        TestRunner.getInstance().assertEquals("some4", myArrayList.get(5));
     }
 
     private static void testIntegerStack() {
