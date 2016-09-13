@@ -5,9 +5,17 @@ public class Stack {
 //        testStringStack();
 //        testIntegerStack();
 //        testPopStack();
-        testMyArrayList();
+//        testMyArrayList();
+        testMyLinkedList();
         System.out.println(" === END === ");
         TestRunner.getInstance().printStat();
+    }
+
+    public static void testMyLinkedList() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList();
+        myLinkedList.add("zero");
+        myLinkedList.add("second");
+        TestRunner.getInstance().assertEquals("zero", myLinkedList.get(0));
     }
 
     private static void testMyArrayList() {
